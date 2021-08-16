@@ -1,5 +1,8 @@
 {
   "name": "demoApp",
-  "integrations": {},
-  "type": "angular"
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "a7a922d9"
 }
