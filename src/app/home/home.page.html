@@ -21,4 +21,18 @@
       <ion-button (click)="startScanning()" expand="full">qrscanner</ion-button>
       <p *ngIf="qrText">QR Scan text: {{ qrText }}</p>
   </div>
+
+  <ion-list>
+    <ion-item> 
+    <ion-label position="stacked">SSID</ion-label>
+    <ion-input type="text"></ion-input>
+    </ion-item> 
+    <ion-item>
+    <ion-label position="stacked">Password</ion-label>
+    <ion-input type="password"></ion-input>
+    </ion-item> 
+  </ion-list> 
+  <div padding=""> 
+    <ion-button color="primary" expand="block">Connect to WiFi</ion-button> 
+  </div> 
 </ion-content>
