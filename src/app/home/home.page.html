@@ -18,21 +18,21 @@
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>-->
   <div class="ion-padding">
-      <ion-button (click)="startScanning()" expand="full">qrscanner</ion-button>
+      <ion-button (click)="startScanning()" expand="block">Scan QR Code</ion-button>
       <p *ngIf="qrText">QR Scan text: {{ qrText }}</p>
   </div>
 
   <ion-list>
     <ion-item> 
     <ion-label position="stacked">SSID</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="SSID"></ion-input>
     </ion-item> 
     <ion-item>
     <ion-label position="stacked">Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item> 
   </ion-list> 
   <div padding=""> 
-    <ion-button color="primary" expand="block">Connect to WiFi</ion-button> 
+    <ion-button color="primary" expand="block" (click)="connectToWiFi()">Connect to WiFi</ion-button> 
   </div> 
 </ion-content>

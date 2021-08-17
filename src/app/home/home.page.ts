@@ -48,4 +48,13 @@ export class HomePage {
       .catch((e: any) => console.log('Error is', e));
   }
 
+  SSID: string = "";
+  password: string = "";
+
+    connectToWiFi(){
+      console.log(this.SSID);
+      console.log(this.password);
+      //this.lableText = this.inputValue;
+    }
+
 }
