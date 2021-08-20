@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+
+//import { WifiWizard2 } from '@ionic-native/wifi-wizard-2/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

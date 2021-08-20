@@ -6,6 +6,10 @@
     <param name="ios-package" value="QRScanner"/>
   </feature>
 
+  <feature name="WifiWizard2">
+    <param name="ios-package" value="WifiWizard2"/>
+  </feature>
+
   <feature name="BarcodeScanner">
     <param name="ios-package" value="CDVBarcodeScanner"/>
   </feature>

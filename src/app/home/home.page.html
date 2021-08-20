@@ -21,7 +21,6 @@
       <ion-button (click)="startScanning()" expand="block">Scan QR Code</ion-button>
       <p *ngIf="qrText">QR Scan text: {{ qrText }}</p>
   </div>
-
   <ion-list>
     <ion-item> 
     <ion-label position="stacked">SSID</ion-label>
@@ -33,6 +32,8 @@
     </ion-item> 
   </ion-list> 
   <div padding=""> 
-    <ion-button color="primary" expand="block" (click)="connectToWiFi()">Connect to WiFi</ion-button> 
+    <ion-button color="primary" expand="block" (click)="connectToWiFi()">Connect to WiFi</ion-button>
+
+    <!--<ion-button color="primary" expand="block" (click)="showAlert()">Basic Alert</ion-button> -->
   </div> 
 </ion-content>
