@@ -7,7 +7,7 @@ import { Platform } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
 //Introducing wifi management dependencies
-//declare var WifiWizard2: any;
+declare var WifiWizard2: any;
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ export class HomePage {
   scanSub: any;
   qrText: string;
 
-  //WifiWizard2: any;
+  WifiWizard2: any;
 
   constructor(
     public alertCtrl: AlertController,
@@ -72,8 +72,38 @@ export class HomePage {
       console.log(this.password);
       //this.lableText = this.inputValue;
       //console.log(this.wifiWizard2.getConnectedSSID());
-      this.showAlert();
+      try{
+        WifiWizard2.iOSConnectNetwork(this.SSID, this.password);
+        //this.successAlert();
+      }catch(e: any){
+        this.errorAlert(e);
+      }
+      //this.showAlert();
     }
+
+    async successAlert() { 
+      const alert = await this.alertCtrl.create({ 
+      header: 'Success', 
+      subHeader: 'Connection to the network was successful.', 
+      message: 'You successfuly conencted to the Topper Wifi Network ' + this.SSID + ". Sleep Well!", 
+      buttons: ['OK'] 
+      }); 
+      await alert.present(); 
+      const result = await alert.onDidDismiss();  
+      console.log(result); 
+      }
+
+    async errorAlert(e) { 
+      const alert = await this.alertCtrl.create({ 
+      header: 'Error', 
+      subHeader: 'Something went wrong with connecting with the network.', 
+      message: 'Error: ' + e, 
+      buttons: ['OK'] 
+      }); 
+      await alert.present(); 
+      const result = await alert.onDidDismiss();  
+      console.log(result); 
+      }
 
     async showAlert() { 
       const alert = await this.alertCtrl.create({ 
