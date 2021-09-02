@@ -9,6 +9,10 @@ import { AlertController } from '@ionic/angular';
 //Introducing wifi management dependencies
 declare var WifiWizard2: any;
 
+import { InAppBrowser } from "@ionic-native/in-app-browser/ngx";
+
+//declare var InAppBrowser: any;
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -19,9 +23,13 @@ export class HomePage {
   qrText: string;
 
   WifiWizard2: any;
+  //InAppBrowser: any;
 
+  //Options list for the displayed webpage. Left blank for now.
+  options = {};
   constructor(
     public alertCtrl: AlertController,
+    private iab: InAppBrowser,
     //private wifiWizard2: WifiWizard2,
     public platform: Platform,
     private qrScanner: QRScanner
@@ -32,6 +40,28 @@ export class HomePage {
     });
   }
 
+  /*launch(){
+    let url = "http://10.201.93.2/index.html"
+    let target = "_blank";
+    this.iab.create(url,target,this.options);
+}*/
+launch() {
+  let target = "_blank";
+  const browser = this.iab.create('http://10.201.93.2/index.html', target);
+  browser.show();
+}
+/*public openWithSystemBrowser(url : string){
+  let target = "_system";
+  this.iab.create(url,target,this.options);
+}
+public openWithInAppBrowser(url : string){
+  let target = "_blank";
+  this.iab.create(url,target,this.options);
+}
+public openWithCordovaBrowser(url : string){
+  let target = "_self";
+  this.iab.create(url,target,this.options);
+} */
   startScanning() {
     // Optionally request the permission early
     this.qrScanner.prepare().

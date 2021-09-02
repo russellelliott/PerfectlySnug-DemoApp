@@ -13,7 +13,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 
-//import { WifiWizard2 } from '@ionic-native/wifi-wizard-2/ngx';
+import { WifiWizard2 } from '@ionic-native/wifi-wizard-2/ngx';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -22,7 +24,9 @@ import { QRScanner } from '@ionic-native/qr-scanner/ngx';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    QRScanner
+    QRScanner,
+    WifiWizard2,
+    InAppBrowser
   ],
   bootstrap: [AppComponent]
 })
