@@ -40,28 +40,8 @@ export class HomePage {
     });
   }
 
-  /*launch(){
-    let url = "http://10.201.93.2/index.html"
-    let target = "_blank";
-    this.iab.create(url,target,this.options);
-}*/
-launch() {
-  let target = "_blank"; //The target is set to "_blank". This opens the given webpage in the App.
-  const browser = this.iab.create('http://10.201.93.2/index.html', target); //Ignitiates a browser with the given URL and destination.
-  browser.show(); //Opens the given page.
-}
-/*public openWithSystemBrowser(url : string){
-  let target = "_system";
-  this.iab.create(url,target,this.options);
-}
-public openWithInAppBrowser(url : string){
-  let target = "_blank";
-  this.iab.create(url,target,this.options);
-}
-public openWithCordovaBrowser(url : string){
-  let target = "_self";
-  this.iab.create(url,target,this.options);
-} */
+SSID: string = ""; //Defines an empty string where the SSID will go. This information is extracted from the QR code and put into the SSID input field for the user to see.
+password: string = ""; //Defines an empty string where the password will go. Like the SSID, this info is extracted from the QR code and put into the password input field.
 
 //The startScanning() function turns on the camera and scans the QR code. When using the app for the first time, it requests the user's consent for the app to use the camera.
 //The ability to use the camera in the app is given by the Camera Usage Permission given in the info.plist file.
@@ -80,10 +60,10 @@ public openWithCordovaBrowser(url : string){
               this.qrScanner.hide();
               this.scanSub.unsubscribe();
 
-              this.qrText = textFound;
+              this.qrText = textFound; //Text from the QR Code
 
-              this.SSID = this.qrText.substring(13, 21);
-              this.password = this.qrText.substring(24,32);
+              this.SSID = this.qrText.substring(13, 21); //SSID extracted as a substring of the QR text.
+              this.password = this.qrText.substring(24,32); //password extracted as a substring of the QR text.
 
               
             }, (err) => {
@@ -103,10 +83,6 @@ public openWithCordovaBrowser(url : string){
       })
       .catch((e: any) => console.log('Error is', e));
   }
-
-  SSID: string = ""; //Defines an empty string where the SSID will go. This information is extracted from the QR code and put into the SSID input field for the user to see.
-  password: string = ""; //Defines an empty string where the password will go. Like the SSID, this info is extracted from the QR code and put into the password input field.
-
     connectToWiFi(){
       console.log(this.SSID);
       console.log(this.password);
@@ -162,6 +138,29 @@ public openWithCordovaBrowser(url : string){
       await alert.present(); 
       const result = await alert.onDidDismiss();  
       console.log(result); 
-      } 
+      }
+
+      /*launch(){
+          let url = "http://10.201.93.2/index.html"
+          let target = "_blank";
+          this.iab.create(url,target,this.options);
+      }*/
+      launch() {
+        let target = "_blank"; //The target is set to "_blank". This opens the given webpage in the App.
+        const browser = this.iab.create('http://10.201.93.2/index.html', target); //Ignitiates a browser with the given URL and destination.
+        browser.show(); //Opens the given page.
+      }
+      /*public openWithSystemBrowser(url : string){
+        let target = "_system";
+        this.iab.create(url,target,this.options);
+      }
+      public openWithInAppBrowser(url : string){
+        let target = "_blank";
+        this.iab.create(url,target,this.options);
+      }
+      public openWithCordovaBrowser(url : string){
+        let target = "_self";
+        this.iab.create(url,target,this.options);
+      } */
 
 }
