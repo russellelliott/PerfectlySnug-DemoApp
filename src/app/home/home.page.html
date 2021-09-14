@@ -18,26 +18,28 @@
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>-->
   <div class="ion-padding">
-      <ion-button (click)="startScanning()" expand="block">Scan QR Code</ion-button>
+      <ion-button (click)="startScanning()" expand="block">Scan QR Code</ion-button> <!--This button activates the QR scanner. From there, the user can scan the QR code to get the Topper's wifi information-->
       <p *ngIf="qrText">QR Scan text: {{ qrText }}</p>
   </div>
   <ion-list>
     <ion-item> 
-    <ion-label position="stacked">SSID</ion-label>
+    <ion-label position="stacked">SSID</ion-label> <!--Input field for SSID. This information is extracted from the Topper's QR code.-->
     <ion-input type="text" [(ngModel)]="SSID"></ion-input>
     </ion-item> 
     <ion-item>
-    <ion-label position="stacked">Password</ion-label>
+    <ion-label position="stacked">Password</ion-label> <!--Input field for password. This information is extracted from the Topper's QR code.-->
     <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item> 
   </ion-list> 
   <div padding=""> 
-    <ion-button color="primary" expand="block" (click)="connectToWiFi()">Connect to WiFi</ion-button>
+    <ion-button color="primary" expand="block" (click)="connectToWiFi()">Connect to WiFi</ion-button> <!--This button connects to the Topper's Wifi given the SSID and password. The Topper must be on for this to work.-->
     <!--<ion-button color="primary" expand="block" (click)="openWithInAppBrowser()">Open Topper</ion-button>-->
     <p>Opening the Smart Topper's UI page (requires connecting to the Topper's Wifi first)</p>
 
     
     <ion-button color="primary" expand="block" (click)="launch()">Open Topper UI</ion-button>
+    <!--This button opens the Topper's UI. Without mDNS services, the only way to access the Topper's UI is connecting to the Topper's UI 
+    and opening the UI page from the Topper's webserver given the Topper's IP address.-->
       <!--<ion-button color="primary" expand="block" (click)="openWithSystemBrowser('http://10.201.93.2/index.html')">Open with System browser</ion-button>
       <ion-button color="primary" expand="block" (click)="openWithInAppBrowser('http://10.201.93.2/index.html')">Open with In App browser</ion-button>
       <ion-button color="primary" expand="block" (click)="openWithCordovaBrowser('http://10.201.93.2/index.html')">Open with Cordova browser</ion-button>-->
